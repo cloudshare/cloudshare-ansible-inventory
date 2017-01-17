@@ -63,7 +63,8 @@ for env in api('envs'):
         vm_host_vars[safe_name(vm['name'])] = {
             'ansible_ssh_user': vm['username'],
             'ansible_ssh_pass': vm['password'],
-            'ansible_host': vm['fqdn']
+            'ansible_host': vm['fqdn'],
+            'ansible_ssh_host': vm['fqdn']
         }
 
 groups['_meta'] = { 'hostvars': vm_host_vars }
