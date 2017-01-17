@@ -2,7 +2,11 @@
 
 ## Usage
 
-`ansible -i cloudshare-inv.py -m ping`
+`ansible -i cloudshare-inv.py all -m ping`
+
+You can limit Ansible by environment:
+
+`ansible -i cloudshare-inv.py my-env -m ping`
 
 ## Install
 
