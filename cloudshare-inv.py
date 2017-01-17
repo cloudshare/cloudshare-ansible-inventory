@@ -39,7 +39,10 @@ def get_ssh_info(env_id):
 
 
 def safe_name(name):
-    return re.sub(r"[ -]+", '-', name).lower()
+    without_bad_chars = re.sub(r"[^A-Za-z0-9]+", ' ', name)
+    lower = without_bad_chars.lower()
+    non_white_parts = [s for s in lower.split(' ') if s != '']
+    return '-'.join(non_white_parts)
 
 
 groups = {}
