@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python2
 
 import os
 import sys
@@ -12,7 +12,7 @@ API_HOST='use.cloudshare.com'
 
 def die(msg):
 
-    print msg
+    print(msg)
     sys.exit(1)
 
 try:
@@ -42,7 +42,7 @@ def safe_name(name):
     without_bad_chars = re.sub(r"[^A-Za-z0-9]+", ' ', name)
     lower = without_bad_chars.lower()
     non_white_parts = [s for s in lower.split(' ') if s != '']
-    return '-'.join(non_white_parts)
+    return '_'.join(non_white_parts)
 
 
 groups = {}
@@ -72,4 +72,4 @@ for env in api('envs'):
 
 groups['_meta'] = { 'hostvars': vm_host_vars }
 
-print json.dumps(groups, indent=2)
+print(json.dumps(groups, indent=2))
